@@ -1,4 +1,4 @@
-package com.spring.security.spring.boot.jwt.entity;
+package com.spring.security.spring.boot.jwt.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,20 +1,20 @@
 package com.spring.security.spring.boot.jwt.security.service;
 
-import com.spring.security.spring.boot.jwt.entity.RoleEntity;
-import com.spring.security.spring.boot.jwt.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
-
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class JWTService {
@@ -23,13 +23,14 @@ public class JWTService {
     @Value("${jwt.expiration}")
     private long expirationMs;
 
-    public String generateToken(UserEntity user) {
+    public String generateToken(String username, Authentication authentication) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("roles", user.getRoles().stream()
-                    .map(RoleEntity::getName)
-                    .toList());
 
-        return buildToken(claims, user.getUsername());
+        claims.put("roles", authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList()));
+
+        return buildToken(claims, username);
     }
 
     private String buildToken(Map<String, Object> claims, String subject) {

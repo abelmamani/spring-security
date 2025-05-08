@@ -1,9 +1,9 @@
 package com.spring.security.spring.boot.jwt;
 
-import com.spring.security.spring.boot.jwt.entity.ERole;
-import com.spring.security.spring.boot.jwt.entity.RoleEntity;
-import com.spring.security.spring.boot.jwt.entity.UserEntity;
-import com.spring.security.spring.boot.jwt.repository.UserRepository;
+import com.spring.security.spring.boot.jwt.persistence.entity.ERole;
+import com.spring.security.spring.boot.jwt.persistence.entity.RoleEntity;
+import com.spring.security.spring.boot.jwt.persistence.entity.UserEntity;
+import com.spring.security.spring.boot.jwt.persistence.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

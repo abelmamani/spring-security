@@ -1,4 +1,4 @@
-package com.spring.security.spring.boot.jwt.dto;
+package com.spring.security.spring.boot.jwt.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

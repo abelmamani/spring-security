@@ -1,7 +1,7 @@
-package com.spring.security.spring.boot.jwt.repository;
+package com.spring.security.spring.boot.jwt.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.spring.security.spring.boot.jwt.entity.UserEntity;
+import com.spring.security.spring.boot.jwt.persistence.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

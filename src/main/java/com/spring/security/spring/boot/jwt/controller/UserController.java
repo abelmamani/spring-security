@@ -1,7 +1,7 @@
 package com.spring.security.spring.boot.jwt.controller;
 
-import com.spring.security.spring.boot.jwt.dto.CreateUserDTO;
-import com.spring.security.spring.boot.jwt.dto.UpdateUserDTO;
+import com.spring.security.spring.boot.jwt.controller.dto.CreateUserDTO;
+import com.spring.security.spring.boot.jwt.controller.dto.UpdateUserDTO;
 import com.spring.security.spring.boot.jwt.service.UserService;
 import com.spring.security.spring.boot.jwt.utils.ResponseEntityManager;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(name = "/api/users")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;

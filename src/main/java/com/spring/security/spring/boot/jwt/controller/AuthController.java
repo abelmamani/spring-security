@@ -1,6 +1,6 @@
 package com.spring.security.spring.boot.jwt.controller;
 
-import com.spring.security.spring.boot.jwt.dto.LoginDTO;
+import com.spring.security.spring.boot.jwt.controller.dto.LoginRequest;
 import com.spring.security.spring.boot.jwt.service.AuthService;
 import com.spring.security.spring.boot.jwt.utils.ResponseEntityManager;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class AuthController {
     private final AuthService authServicee;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         Map<String, String> response = new HashMap<>();
         try {
             String token = authServicee.login(request);
