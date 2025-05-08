@@ -8,7 +8,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -24,14 +23,13 @@ public class JWTService {
     @Value("${jwt.expiration}")
     private long expirationMs;
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserEntity user) {
         Map<String, Object> claims = new HashMap<>();
-        if (userDetails instanceof UserEntity user) {
-            claims.put("roles", user.getRoles().stream()
+        claims.put("roles", user.getRoles().stream()
                     .map(RoleEntity::getName)
                     .toList());
-        }
-        return buildToken(claims, userDetails.getUsername());
+
+        return buildToken(claims, user.getUsername());
     }
 
     private String buildToken(Map<String, Object> claims, String subject) {

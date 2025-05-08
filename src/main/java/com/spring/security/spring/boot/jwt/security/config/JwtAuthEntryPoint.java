@@ -24,7 +24,7 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
                 {
                     "status": 401,
                     "error": "Unauthorized",
-                    "message": "Token inválido o faltante",
+                    "message": "Token invalido o faltante",
                     "path": "%s"
                 }
                 """.formatted(request.getServletPath())
